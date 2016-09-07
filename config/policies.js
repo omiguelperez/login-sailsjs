@@ -49,8 +49,9 @@ module.exports.policies = {
 		// feed : ['isNiceToAnimals', 'hasRabbitFood']
 	// }
 
-  'PostController': {
-    '*': 'isAuthenticated'
-  },
+  'UserController': 'isAuthenticated',
+  'HomeController': 'isAuthenticated',
+
+  'IndexController': 'isLogged'
 
 };

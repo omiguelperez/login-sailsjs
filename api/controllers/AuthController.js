@@ -15,6 +15,7 @@ module.exports = {
 		rest: false
 	},
 
+	// Acceder
 	login: function (req, res, next) {
 		passport.authenticate('local', function (err, user, info) {
 			if (err || !user) {
@@ -24,6 +25,7 @@ module.exports = {
 				});
 			}
 
+			// Loguedo del `usuario`
 			req.logIn(user, function (err) {
 				if (err) return res.send(err);
 				return res.send({
@@ -34,6 +36,7 @@ module.exports = {
 		})(req, res, next);
 	},
 
+	// Cerrar sesión
 	logout: function (req, res) {
 		req.logout();
 		res.redirect('/');
